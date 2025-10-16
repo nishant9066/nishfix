@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Powerful IPTV Player</title>
+  <meta name="description" content="Watch your favorite M3U IPTV streams with our powerful Online IPTV Player. An incredible M3U IPTV video streaming player that allows you to watch Live, Movies and Series.">
+  <meta name="keywords" content="Online IPTV Player, Iptv m3u playlist, M3U player, IPTV Player, iptv stream player, iptv smart player, stream IPTV, online player, web IPTV player">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="css/nishh.css" rel="stylesheet">
+
+  <!-- Video Libraries -->
+  <script src="js/dist-mpegts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="js/dist-mux.min.js"></script>
+
+  <style>
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px 10px;
+      font-family: 'Georgia', 'Times New Roman', Times, serif; /* Classic font */
+      font-size: 20px; /* Slightly bigger */
+      color: #ffd700; /* Golden accent for heart */
+    }
+
+    footer span.heart {
+      color: #ff4b5c; /* Red heart */
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <!-- Stream Error Banner -->
+  <div id="stream-error-banner" class="stream-error-banner hidden">
+    <div class="error-banner-content">
+      <div class="error-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <div class="error-details">
+        <div class="error-title">Stream Playback Failed</div>
+        <div class="error-message" id="error-message-text">
+          We're having trouble playing this stream. Please try refreshing the page.
+        </div>
+      </div>
+      <div class="error-actions">
+        <button id="retry-stream" class="error-btn primary">
+          <i class="fas fa-redo"></i> Retry Stream
+        </button>
+        <button id="dismiss-error" class="error-btn secondary">
+          <i class="fas fa-times"></i> Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="header-row">
+      <h1><img src="images/nishtv.png" alt="niSH" class="site-logo">niSH IPTV</h1>
+      <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-label">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </label>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="stream-url" placeholder="Enter IPTV stream URL" value="https://in-mc-fdlive.fancode.com/mumbai/137189_english_hls_e1df88ce0453625adfreeta-di_h264/index.m3u8">
+      <button id="load-stream"><i class="fas fa-play"></i> Play Stream</button>
+    </div>
+
+    <div class="player-container">
+      <video id="videoElement" controls autoplay style="width: 100%;"></video>
+      <div id="play-overlay" class="play-overlay">
+        <div class="play-button">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="status">
+      <p id="status-message"><i class="fas fa-info-circle"></i> Ready to play stream</p>
+    </div>
+
+    <div class="player-controls">
+      <button id="copy-url" class="external-player-btn"><i class="fas fa-copy"></i> Copy Stream URL</button>
+      <button id="share-link" class="external-player-btn"><i class="fas fa-share-alt"></i> Share Link</button>
+    </div>
+
+    <div class="playback-settings">
+      <h3><i class="fas fa-sliders-h"></i> Playback Settings</h3>
+      <div class="settings-row">
+        <div>
+          <label for="buffer-size">Buffer Size:</label>
+          <select id="buffer-size">
+            <option value="1024">Low (1MB)</option>
+            <option value="4096" selected>Medium (4MB)</option>
+            <option value="8192">High (8MB)</option>
+            <option value="16384">Very High (16MB)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="latency-mode">Playback Mode:</label>
+          <select id="latency-mode">
+            <option value="low">Low Latency (More Buffering)</option>
+            <option value="medium">Medium Latency</option>
+            <option value="high" selected>Smooth Playback (High Latency)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="prebuffer-time">Pre-buffer Time:</label>
+          <select id="prebuffer-time">
+            <option value="3000">3 seconds</option>
+            <option value="5000" selected>5 seconds</option>
+            <option value="10000">10 seconds</option>
+            <option value="15000">15 seconds</option>
+          </select>
+        </div>
+
+        <button id="apply-settings" class="settings-btn"><i class="fas fa-check"></i> Apply Settings</button>
+      </div>
+    </div>
+
+    <div class="tips">
+      <h3><i class="fas fa-lightbulb"></i> Troubleshooting Tips</h3>
+      <ul>
+        <li>If you experience buffering, try increasing the buffer size and pre-buffer time</li>
+        <li>For smoother playback, select "Smooth Playback" mode (higher latency)</li>
+        <li>If the stream doesn't play, try opening in VLC</li>
+        <li>Some streams may require authentication or specific headers</li>
+        <li>If the stream URL contains a token, it may expire after some time</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Compiled with <span class="heart">♥️</span> by nish
+  </footer>
+
+  <script src="js/.-7069-app.js"></script>
+</body>
+</html>
