@@ -1,0 +1,9 @@
+{
+  "buildCommand": "echo 'Vercel auto build'",
+  "outputDirectory": "public",
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18"
+    }
+  }
+}
